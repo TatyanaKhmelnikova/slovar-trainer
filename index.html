@@ -1,0 +1,233 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Тренажёр словарных слов</title><style>
+:root{--bg:#f3f4f8;--card:#fff;--text:#182230;--muted:#667085;--p:#5b4ce1;--ok:#159447;--bad:#dc2626;--line:#e2e5ee}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#eef2ff,#f8fafc,#ecfeff);font-family:Arial,sans-serif;color:var(--text);min-height:100vh}.app{max-width:900px;margin:auto;padding:16px}header{background:linear-gradient(135deg,#4338ca,#7c3aed);color:#fff;border-radius:24px;padding:20px;margin-bottom:14px}h1{margin:0 0 6px;font-size:28px}.sub{opacity:.9}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:14px;box-shadow:0 8px 24px #11182712}.top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.classGrid,.levelGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.levelGrid{grid-template-columns:repeat(4,1fr)}button{border:0;border-radius:13px;padding:12px 14px;font-size:15px;font-weight:700;cursor:pointer;background:#eef2ff;color:#3730a3}.classBtn.active{background:var(--p);color:#fff}.levelBtn{position:relative;min-height:62px}.levelBtn small{display:block;font-weight:500;color:#667085;margin-top:3px}.levelBtn.current{outline:3px solid #c7d2fe;background:#ede9fe}.levelBtn.done{background:#dcfce7;color:#166534}.levelBtn.locked{opacity:.45;cursor:not-allowed}.stars{display:block;font-size:18px;letter-spacing:2px;margin-top:4px}.levelBtn.failed{background:#fff7ed;color:#9a3412}.lessonHint{font-size:13px;color:#667085;margin-top:3px}.badge{padding:7px 10px;border-radius:999px;background:#f3f4f6;color:#374151;font-size:13px;font-weight:700}.stageHead{display:flex;justify-content:space-between;align-items:center;gap:8px}.stageTabs{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin:10px 0 12px}.stageTab{padding:9px 6px;border-radius:11px;font-size:13px;background:#eef2ff;color:#3730a3}.stageTab.active{background:var(--p);color:#fff}.stageTab small{display:block;font-size:10px;font-weight:600;margin-top:2px;opacity:.85}@media(max-width:650px){.stageTabs{grid-template-columns:repeat(3,1fr);gap:4px}.stageTab{padding:8px 2px;font-size:11px}.stageTab small{display:none}}.backStage{background:#eef2ff;color:#3730a3;padding:9px 12px;border-radius:12px;font-size:14px;font-weight:700}.stageTitle{font-size:23px;font-weight:800;color:#4f46e5}.stageName{font-size:16px;color:#667085}.progress{height:10px;background:#e5e7eb;border-radius:20px;overflow:hidden;margin:12px 0}.progress i{display:block;height:100%;background:linear-gradient(90deg,#4f46e5,#8b5cf6);width:0}.panel{max-width:700px;margin:auto;padding:20px;text-align:center;border-radius:22px;background:linear-gradient(145deg,#f8faff,#f5f3ff);border:2px solid #e0e7ff}.picture{width:230px;height:170px;margin:4px auto 16px;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:100px;border:2px solid #e0e7ff;box-shadow:0 6px 18px #4f46e51a}.bigword{font-size:40px;font-weight:900;margin:8px 0 12px;word-break:break-word}.spaced{letter-spacing:4px}.dictword{font-size:30px;font-weight:800;margin:14px}.panel p{font-size:17px;color:#667085;line-height:1.45}.panel input{width:100%;max-width:520px;padding:15px;border:2px solid #d1d5db;border-radius:14px;font-size:21px;text-align:center;outline:none;margin:10px auto}.panel input:focus{border-color:var(--p)}.primary{background:var(--p);color:#fff;margin-top:12px}.danger{background:#fee2e2;color:#991b1b}.actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:14px}.ok{color:var(--ok);font-weight:800}.bad{color:var(--bad);font-weight:800}#fb,#cfb,#efb{min-height:28px;margin:10px}.options{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:10px}.options button{font-size:22px;background:#fff;border:2px solid #dbe2f0}.options button.picked{background:#ddd6fe;border-color:#7c3aed}.blankBox{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:12px;margin:10px 0}.miniFb{min-height:20px;margin-top:5px;color:#667085}.choiceGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px}.letterBtn{background:#fff;border:2px solid #dbe2f0;color:#111827;min-width:42px;margin:3px;font-size:30px;padding:10px 13px}.letterBtn.correctPick{background:#dcfce7!important;border-color:#22c55e!important;color:#166534!important}.letterBtn.wrongPick{background:#fee2e2!important;border-color:#ef4444!important;color:#991b1b!important}.choiceGrid button{background:#fff;border:2px solid #e5e7eb;color:#111827;font-size:18px;min-height:54px}.choiceGrid button.correctPick{background:#dcfce7!important;border-color:#22c55e!important;color:#166534}.choiceGrid button.wrongPick{background:#fee2e2!important;border-color:#ef4444!important;color:#991b1b}.answerReveal{font-size:20px;font-weight:700;margin:12px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:#f8fafc;border-radius:15px;padding:12px;text-align:center}.stat b{display:block;font-size:24px}@media(max-width:650px){.app{padding:10px}.classGrid{grid-template-columns:1fr}.levelGrid{grid-template-columns:repeat(2,1fr)}.bigword{font-size:34px}.options{grid-template-columns:repeat(2,1fr)}.picture{width:210px;height:150px;font-size:90px}.stageTitle{font-size:20px}.choiceGrid{grid-template-columns:1fr}}
+.calpic{width:170px;height:145px;border-radius:16px;background:#fff;border:2px solid #d9dcef;overflow:hidden;box-shadow:0 5px 12px #0001}.calhead{background:#ef4444;color:#fff;font-size:20px;font-weight:800;padding:12px 5px}.calbody{height:90px;display:flex;align-items:center;justify-content:center;font-size:54px;color:#1f2937}
+</style></head><body><div class="app"><header><h1>📚 Тренажёр словарных слов</h1><div class="sub">6 этапов • уроки • звёзды за результат • итоговая проверка</div></header><div class="card"><div class="top"><strong>1. Выберите класс</strong><span id="classInfo" class="badge"></span></div><div id="classes" class="classGrid"></div></div><div class="card"><div class="top"><strong>2. Выберите урок</strong><button onclick="resetAll()">Сбросить прогресс</button></div><div id="levels" class="levelGrid"></div></div><div class="card"><div class="stageHead"><div><div id="stageTitle" class="stageTitle"></div><div id="stageName" class="stageName"></div></div><span id="wordPos" class="badge"></span></div><div id="stageTabs" class="stageTabs"></div><div class="progress"><i id="bar"></i></div><div id="game"></div></div><div class="card"><div class="stats"><div class="stat"><small>Ошибки</small><b id="errors">0</b></div><div class="stat"><small>Пройдено уроков</small><b id="doneLevels">0</b></div><div class="stat"><small>Уроков в классе</small><b id="levelCount">0</b></div></div></div></div><script>
+const DATA={"1–2 класс": ["весело", "ворона", "воробей", "девочка", "дежурный", "деревня", "заяц", "карандаш", "класс", "корова", "лисица", "мальчик", "машина", "медведь", "молоко", "пальто", "пенал", "петух", "работа", "ребята", "собака", "сорока", "тетрадь", "ученик", "ученица", "учитель", "учительница", "яблоко", "язык", "сентябрь", "здравствуйте", "спасибо", "прощай", "Родина", "родина", "ветер", "ветерок", "извините", "быстро", "скоро", "рисунок", "рисовать", "берёза", "яблоня", "лопата", "щавель", "до свидания", "посуда", "октябрь", "ноябрь", "месяц", "январь", "февраль", "картинка", "стакан", "топор", "аккуратный", "отец", "Россия", "аккуратно", "алфавит", "сахар", "капуста", "осина", "одежда", "лягушка", "земляника", "малина", "молоток", "мороз", "иней", "суббота", "мебель", "коньки", "тарелка", "товарищ", "вдруг", "завод", "сапог"], "3 класс": ["хорошо", "праздник", "вместе", "язык", "альбом", "погода", "понедельник", "пшеница", "заря", "ракета", "четыре", "восемь", "вторник", "среда", "петрушка", "овощи", "горох", "огурец", "помидор", "огород", "картофель", "столица", "творог", "творог", "обед", "ужин", "пирог", "шоссе", "четверг", "север", "природа", "пороша", "чувство", "лестница", "коллекция", "коллектив", "самолёт", "грамм", "килограмм", "комната", "герой", "однажды", "кровать", "солома", "приветливо", "Красная площадь", "Московский кремль", "ромашка", "сирень", "поэт", "гвоздика", "животное"], "4 класс": ["одуванчик", "воскресенье", "завтрак", "лесок", "хозяин", "хозяйство", "болезнь", "носок", "хозяин", "хозяйство", "комбайн", "комбайнер", "комбайнёр", "багаж", "календарь"]};
+const CLASS_ORDER=Object.keys(DATA);
+let cls=CLASS_ORDER[0], level=0, wordIndex=0, stage=1, levelHadError=false, lessonErrors=0, examIndex=0, examErrors=0, examMode='choice', examWords=[];
+const KEY='vocabTrainerLessonsV5';
+let progress={}; try{progress=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){progress={}; localStorage.removeItem(KEY);}
+function save(){localStorage.setItem(KEY,JSON.stringify(progress));}
+function clsWords(){return DATA[cls]||[]}
+function seededShuffle(arr, seed){
+ let x=seed>>>0;
+ const a=[...arr];
+ for(let i=a.length-1;i>0;i--){x=(x*1664525+1013904223)>>>0; const j=x%(i+1); [a[i],a[j]]=[a[j],a[i]];}
+ return a;
+}
+function makeMixedLevels(words,count,seed){
+ const mixed=seededShuffle(words,seed);
+ const out=[]; const base=Math.floor(mixed.length/count), extra=mixed.length%count;
+ let at=0;
+ for(let i=0;i<count;i++){const n=base+(i<extra?1:0);out.push(mixed.slice(at,at+n));at+=n;}
+ return out;
+}
+const LEVELS={
+ '1–2 класс': makeMixedLevels(DATA['1–2 класс'],12,12026),
+ '3 класс': makeMixedLevels(DATA['3 класс'],8,32026),
+ '4 класс': makeMixedLevels(DATA['4 класс'],1,42026)
+};
+function levels(){return LEVELS[cls]||[];}
+function levelWords(){return levels()[level]||[]}
+function currentWord(){return levelWords()[wordIndex]||''}
+function pkey(){return cls+'|L'+level}
+function ensure(){if(!progress[cls])progress[cls]={done:[],errors:{},stars:{},attempted:{}};if(!progress[cls].stars)progress[cls].stars={};if(!progress[cls].attempted)progress[cls].attempted={};}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function norm(s){return s.trim().toLowerCase().replace(/ё/g,'ё')}
+function markError(){levelHadError=true;lessonErrors++;ensure();progress[cls].errors[pkey()]=(progress[cls].errors[pkey()]||0)+1;save();updateStats();}
+function starsFor(errors){if(errors<=0)return 3;if(errors===1)return 2;if(errors<=3)return 1;return 0}
+function lessonStars(i){ensure();return Number(progress[cls].stars?.[i]||0)}
+function lessonDone(i){return lessonStars(i)>0}
+function markDone(){ensure();const st=starsFor(lessonErrors);if(!progress[cls].stars)progress[cls].stars={};if(st>0){const prev=lessonStars(level);progress[cls].stars[level]=Math.max(prev,st);if(!progress[cls].done.includes(level))progress[cls].done.push(level);}save();}
+function resetAll(){if(confirm('Сбросить прогресс этого класса?')){progress[cls]={done:[],errors:{},stars:{}};save();level=0;wordIndex=0;stage=1;levelHadError=false;lessonErrors=0;examIndex=0;examErrors=0;renderAll();}}
+function pictureFor(w){
+ const m={
+ 'весело':'😄','ворона':'🐦‍⬛','воробей':'🐦','девочка':'👧','дежурный':'🧑‍🏫','деревня':'🏡','заяц':'🐇','карандаш':'✏️','класс':'🏫','корова':'🐄','лисица':'🦊','мальчик':'👦','машина':'🚗','медведь':'🐻','молоко':'🥛','пальто':'🧥','пенал':'🖊️','петух':'🐓','работа':'💼','ребята':'🧒','собака':'🐕','сорока':'🐦','тетрадь':'📓','ученик':'🎒','ученица':'🎒','учитель':'👩‍🏫','учительница':'👩‍🏫','яблоко':'🍎','язык':'👅','сентябрь':'🍂','здравствуйте':'👋','спасибо':'🙏','прощай':'👋','родина':'🏠','ветер':'🌬️','ветерок':'🍃','извините':'🙇','быстро':'⚡','скоро':'⏱️','рисунок':'🖼️','рисовать':'🎨','берёза':'🌳','яблоня':'🌳','лопата':'🪣','щавель':'🌿','до свидания':'👋','посуда':'🍽️','октябрь':'🍁','ноябрь':'🍂','месяц':'📅','январь':'❄️','февраль':'❄️','картинка':'🖼️','стакан':'🥛','топор':'🪓','аккуратный':'✨','отец':'👨','россия':'🇷🇺','аккуратно':'👌','алфавит':'🔤','сахар':'🍬','капуста':'🥬','осина':'🌳','одежда':'👕','лягушка':'🐸','земляника':'🍓','малина':'🫐','молоток':'🔨','мороз':'🥶','иней':'❄️','суббота':'📅','мебель':'🪑','коньки':'⛸️','тарелка':'🍽️','товарищ':'🧑‍🤝‍🧑','вдруг':'❗','завод':'🏭','сапог':'👢','хорошо':'👍','праздник':'🎉','вместе':'🤝','альбом':'📔','погода':'🌦️','понедельник':'📅','пшеница':'🌾','заря':'🌅','ракета':'🚀','четыре':'4️⃣','восемь':'8️⃣','вторник':'📅','среда':'📅','петрушка':'🌿','овощи':'🥕','горох':'🫛','огурец':'🥒','помидор':'🍅','огород':'🌱','картофель':'🥔','столица':'🏙️','творог':'🥣','обед':'🍲','ужин':'🍽️','пирог':'🥧','шоссе':'🛣️','четверг':'📅','север':'🧭','природа':'🌲','пороша':'❄️','чувство':'❤️','лестница':'🪜','коллекция':'🧸','коллектив':'👥','самолёт':'✈️','грамм':'⚖️','килограмм':'⚖️','комната':'🛏️','герой':'🦸','однажды':'📖','кровать':'🛏️','солома':'🌾','приветливо':'😊','красная площадь':'🏛️','московский кремль':'🏰','ромашка':'🌼','сирень':'💜','поэт':'✍️','гвоздика':'🌺','животное':'🐾','одуванчик':'🌼','завтрак':'🍳','лесок':'🌲','хозяин':'🧑‍🌾','хозяйство':'🚜','болезнь':'🤒','носок':'🧦','комбайн':'🚜','комбайнер':'👨‍🌾','комбайнёр':'👨‍🌾','багаж':'🧳','календарь':'📅'
+ };
+ if(norm(w)==='воскресенье') return '<div class="calpic"><div class="calhead">КАЛЕНДАРЬ</div><div class="calbody"><b>ВС</b></div></div>';
+ return '<span>'+ (m[norm(w)]||'🖼️') +'</span>';
+}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function wrongSpellings(w){
+ const variants=new Set(); const a=[...w];
+ const vowel='аеёиоуыэюя';
+ const pair={б:['п'],п:['б'],в:['ф'],ф:['в'],г:['к'],к:['г'],д:['т'],т:['д'],з:['с'],с:['з'],ж:['ш'],ш:['ж'],ч:['щ'],щ:['ч']};
+ const vowelAlt={а:['о','я'],о:['а','е'],е:['и','я'],и:['е','ы'],я:['а','е'],у:['ю','о'],ю:['у','и'],ы:['и','о'],э:['е'],ё:['е','о']};
+ // Сначала меняем именно те буквы, которые обычно являются орфограммами.
+ const candidates=[];
+ for(let i=0;i<a.length;i++){
+   const c=a[i].toLowerCase();
+   if(vowel.includes(c)) candidates.push({i,alts:vowelAlt[c]||[] ,score:10-(i===0?4:0)});
+   if(pair[c]) candidates.push({i,alts:pair[c],score:8-(i===0?4:0)});
+   if(c==='ь'||c==='ъ') candidates.push({i,alts:[''],score:7});
+ }
+ candidates.sort((x,y)=>y.score-x.score || x.i-y.i);
+ for(const item of candidates){
+   for(const r of item.alts){
+     const b=a.slice();
+     if(r==='') b.splice(item.i,1); else b[item.i]=r;
+     const x=b.join('');
+     if(x!==w && x.length>1 && x.toLowerCase()!==w.toLowerCase()) variants.add(x);
+     if(variants.size>=3) return [...variants].slice(0,3);
+   }
+ }
+ // Резерв: если в слове мало подходящих орфограмм, меняем буквы, но не первую букву.
+ const fallback='аеёиоуыэюя';
+ for(let i=1;i<a.length && variants.size<3;i++){
+   if(!/[а-яё]/i.test(a[i])) continue;
+   for(const r of fallback){
+     if(r===a[i].toLowerCase()) continue;
+     const b=a.slice(); b[i]=r; const x=b.join('');
+     if(x!==w && x.toLowerCase()!==w.toLowerCase()) variants.add(x);
+     if(variants.size>=3) break;
+   }
+ }
+ return [...variants].slice(0,3);
+}
+function missingPositions(w){
+ const pos=[];
+ const chars=[...w];
+ const add=(i)=>{if(i>=0&&i<chars.length&&/[а-яё]/i.test(chars[i])&&!pos.includes(i))pos.push(i)};
+ const lower=norm(w);
+ // Prefer likely orthograms; then fill so every word has 2–4 blanks when possible.
+ for(let i=0;i<chars.length;i++){
+   const c=chars[i].toLowerCase();
+   if('аеёиоуыэюя'.includes(c) && i>0) add(i);
+   if('жшчщ'.includes(c) || (c==='ь'||c==='ъ')) add(i);
+   if(i>0 && /[бвгджзклмнпрстфхцчшщ]/.test(c)) add(i);
+ }
+ const target=Math.min(4,Math.max(2, chars.filter(c=>/[а-яё]/i.test(c)).length>=5?3:2));
+ const order=shuffle([...Array(chars.length).keys()].filter(i=>/[а-яё]/i.test(chars[i])));
+ for(const i of order){add(i);if(pos.length>=target)break}
+ return pos.sort((a,b)=>a-b);
+}
+function optionLetters(correct){
+ const set=[correct];
+ const pool='аеёиоуыэюя'.includes(correct)?'аеёиоуыэюя':'бвгджзкпстфхцчшщь';
+ for(const x of shuffle([...pool])){if(x!==correct&&!set.includes(x))set.push(x);if(set.length===4)break}
+ for(const x of shuffle([... 'аеёиоуыэюя'])){if(!set.includes(x))set.push(x);if(set.length===4)break}
+ return shuffle(set.slice(0,4));
+}
+function renderHeader(){
+ const tabs=document.getElementById('classes');
+ tabs.innerHTML=CLASS_ORDER.map((c,i)=>`<button type="button" class="classBtn ${c===cls?'active':''}" data-class-index="${i}">${esc(c)}</button>`).join('');
+ tabs.querySelectorAll('.classBtn').forEach(btn=>btn.addEventListener('click',()=>{ const i=Number(btn.dataset.classIndex); selectClass(CLASS_ORDER[i]); }));
+ const lv=document.getElementById('levels');
+ const ls=levels();
+ // Все уровни открыты сразу — ребёнок может выбрать любой уровень.
+ lv.innerHTML=ls.map((_,i)=>{const st=lessonStars(i);const stars='★'.repeat(st)+'☆'.repeat(3-st);return `<button type="button" class="levelBtn ${i===level?'current':''} ${st?'done':''} ${st===0&&progress[cls]?.attempted?.[i]?'failed':''}" data-level-index="${i}">Урок ${i+1}<span class="stars">${stars}</span><small>${ls[i].length} слов</small></button>`}).join('');
+ lv.querySelectorAll('.levelBtn').forEach(btn=>btn.addEventListener('click',()=>selectLevel(Number(btn.dataset.levelIndex))));
+ document.getElementById('classInfo').textContent=`${cls}: ${clsWords().length} слов`;
+}
+function selectClass(c){cls=c;level=0;wordIndex=0;stage=1;levelHadError=false;lessonErrors=0;examIndex=0;examErrors=0;renderAll()}
+function selectLevel(i){level=i;wordIndex=0;stage=1;levelHadError=false;lessonErrors=0;examIndex=0;examErrors=0;ensure();if(!progress[cls].attempted)progress[cls].attempted={};progress[cls].attempted[i]=true;save();renderAll();setTimeout(()=>document.querySelector('.stageHead')?.scrollIntoView({behavior:'smooth',block:'start'}),50)}
+function renderAll(){renderHeader(); if(stage==='exam'){document.getElementById('stageTabs').innerHTML=''; return renderExam();} renderStage(); updateStats(); renderStageTabs();}
+function stageOrder(){return [1,6,3,4,5,2]}
+function stagePos(){return stageOrder().indexOf(stage)}
+function renderStageTabs(){const el=document.getElementById('stageTabs');if(!el)return;const names=['👀 Запомни','✅ Выбери','🔤 Гласные','🧩 Собери','🕵️ Ошибка','✍️ Напиши'];el.innerHTML=names.map((n,i)=>`<button type="button" class="stageTab ${stagePos()===i?'active':''}" onclick="goStage(${stageOrder()[i]})">${n}<small>Этап ${i+1}</small></button>`).join('');}
+function goStage(n){if(!stageOrder().includes(n)||stage==='exam')return;stage=n;renderAll();document.querySelector('.stageHead')?.scrollIntoView({behavior:'smooth',block:'start'});}
+function backStage(){
+ if(stage==='exam') return;
+ const p=stagePos(); if(p>0){stage=stageOrder()[p-1];renderAll()}
+}
+function renderStage(){
+ const ws=levelWords(), w=currentWord();
+ document.getElementById('stageTitle').textContent=`Этап ${stagePos()+1} из 6`;
+ document.getElementById('stageName').textContent=['','Запомни слово','Напиши по памяти','Вставь пропущенные гласные','Собери слово','Найди ошибку','Выбери правильное написание'][stage];
+ const sh=document.querySelector('.stageHead');
+ if(sh){let b=document.getElementById('backStageBtn'); if(!b){b=document.createElement('button');b.id='backStageBtn';b.className='backStage';sh.prepend(b)} b.textContent='← Назад';b.onclick=backStage;b.style.visibility=stage>1?'visible':'hidden';b.disabled=stage===1;}
+ document.getElementById('wordPos').textContent=`Урок ${level+1} • слово ${wordIndex+1} из ${ws.length}`;
+ document.getElementById('bar').style.width=((wordIndex*6+stagePos())/(ws.length*6)*100)+'%';
+ const g=document.getElementById('game');
+ if(stage===1)g.innerHTML=`<div class="panel"><div class="picture">${pictureFor(w)}</div><div class="bigword">${esc(w)}</div><p>Посмотри на картинку и запомни, как пишется слово.</p><button class="primary" onclick="nextStage()">Дальше →</button></div>`;
+ if(stage===6)renderChoice(w);
+ if(stage===2){g.innerHTML=`<div class="panel"><div class="picture">${pictureFor(w)}</div><div class="bigword">••••••••</div><p>Напиши слово по памяти.</p><input id="typed" autocomplete="off" placeholder="Введите слово"><div id="fb"></div><button class="primary" onclick="checkType()">Проверить</button></div>`;setTimeout(()=>document.getElementById('typed')?.focus(),50)}
+ if(stage===3)renderVowels(w);
+ if(stage===4)renderBuild(w);
+ if(stage===5)renderFindError(w);
+ renderStageTabs();
+}
+function nextStage(){const p=stagePos();if(p<stageOrder().length-1){stage=stageOrder()[p+1];renderAll()}else{finishWord()}}
+function checkType(){const v=document.getElementById('typed')?.value||'';if(norm(v)===norm(currentWord())){document.getElementById('fb').innerHTML='<span class="ok">✓ Верно!</span>';setTimeout(nextStage,450)}else{markError();document.getElementById('fb').innerHTML='<span class="bad">✗ Есть ошибка. Попробуй ещё раз.</span>';}}
+function renderVowels(w){const vowels='аеёиоуыэюя';const pos=[];const shown=[...w];for(let i=0;i<shown.length;i++){if(vowels.includes(shown[i].toLowerCase())){pos.push(i);shown[i]='_'}}window.vowelState={pos,answers:{}};document.getElementById('game').innerHTML=`<div class="panel"><div class="picture">${pictureFor(w)}</div><div class="bigword spaced">${shown.join('')}</div><p>Вставь пропущенные <b>гласные</b>. Для каждого пропуска выбери правильную букву.</p>${pos.map((p,j)=>`<div class="blankBox"><b>Гласная ${j+1}</b><div class="options">${optionLetters(w[p].toLowerCase()).filter(x=>vowels.includes(x)).slice(0,4).map(x=>`<button type="button" onclick="chooseVowel(${j},'${x}')">${x}</button>`).join('')}</div><div id="vfb${j}" class="miniFb"></div></div>`).join('')}<button id="checkVowels" class="primary" disabled onclick="checkVowels()">Проверить гласные</button></div>`}
+function chooseVowel(j,x){window.vowelState.answers[j]=x;const b=document.querySelectorAll('.blankBox')[j];b.querySelectorAll('button').forEach(q=>q.classList.remove('picked'));[...b.querySelectorAll('button')].find(q=>q.textContent===x)?.classList.add('picked');document.getElementById('vfb'+j).textContent='Выбрано: '+x;document.getElementById('checkVowels').disabled=Object.keys(window.vowelState.answers).length!==window.vowelState.pos.length}
+function checkVowels(){const w=window.examCurrentWord||currentWord(),s=window.vowelState;let ok=true;s.pos.forEach((p,j)=>{const good=w[p].toLowerCase(),got=s.answers[j];if(got!==good){ok=false;document.getElementById('vfb'+j).innerHTML=`<span class="bad">✗ Правильно: ${good}</span>`}else document.getElementById('vfb'+j).innerHTML='<span class="ok">✓</span>'});if(ok){setTimeout(()=>{if(stage==='exam')examNext();else nextStage()},500)}else markError()}
+function shuffledLetters(w){const a=[...w];if(a.length<2)return a;let b=shuffle(a),tries=0;while(b.join('')===w&&tries++<20)b=shuffle(a);if(b.join('')===w)[b[0],b[1]]=[b[1],b[0]];return b}
+function renderBuild(w){window.buildState={letters:shuffledLetters(w),chosen:[]};const st=window.buildState;document.getElementById('game').innerHTML=`<div class="panel"><div class="picture">${pictureFor(w)}</div><p>Буквы перемешались! Нажимай на них в правильном порядке и собери слово.</p><div id="buildWord" class="bigword spaced">_</div><div class="options">${st.letters.map((x,i)=>`<button type="button" id="bl${i}" onclick="pickBuild(${i})">${esc(x)}</button>`).join('')}</div><div class="actions"><button type="button" onclick="undoBuild()">⌫ Удалить последнюю</button><button type="button" onclick="resetBuild()">↩ Начать заново</button></div><div id="bfb" class="miniFb"></div><button id="checkBuild" class="primary" disabled onclick="checkBuild()">Проверить слово</button></div>`}
+function updateBuild(){const st=window.buildState;if(!st)return;document.getElementById('buildWord').textContent=st.chosen.map(k=>st.letters[k]).join('')||'_';document.getElementById('checkBuild').disabled=st.chosen.length!==st.letters.length}
+function pickBuild(i){const st=window.buildState;if(!st||st.chosen.includes(i))return;st.chosen.push(i);document.getElementById('bl'+i).disabled=true;updateBuild()}
+function undoBuild(){const st=window.buildState;if(!st||!st.chosen.length)return;const i=st.chosen.pop();document.getElementById('bl'+i).disabled=false;document.getElementById('bfb').textContent='';updateBuild()}
+function resetBuild(){const st=window.buildState;if(!st)return;st.chosen=[];st.letters.forEach((_,i)=>document.getElementById('bl'+i).disabled=false);document.getElementById('bfb').textContent='';updateBuild()}
+function checkBuild(){const st=window.buildState,w=window.examCurrentWord||currentWord(),got=st.chosen.map(i=>st.letters[i]).join('');if(norm(got)===norm(w)){document.getElementById('bfb').innerHTML='<span class="ok">✓ Правильно!</span>';setTimeout(()=>{if(stage==='exam')examNext();else nextStage()},500)}else{markError();document.getElementById('bfb').innerHTML='<span class="bad">✗ Не получилось. Собери слово ещё раз.</span>';st.chosen=[];st.letters.forEach((_,i)=>document.getElementById('bl'+i).disabled=false);document.getElementById('buildWord').textContent='_';document.getElementById('checkBuild').disabled=true}}
+function makeErrorWord(w){const a=[...w], va={а:'о',о:'а',е:'и',и:'е',я:'а',у:'о',ю:'у',ы:'и',э:'е',ё:'е'}, ca={б:'п',п:'б',в:'ф',ф:'в',г:'к',к:'г',д:'т',т:'д',з:'с',с:'з',ж:'ш',ш:'ж',ч:'щ',щ:'ч'};for(let i=1;i<a.length;i++){let c=a[i].toLowerCase();if(va[c]){a[i]=va[c];return {word:a.join(''),index:i}}if(ca[c]){a[i]=ca[c];return {word:a.join(''),index:i}}}for(let i=1;i<a.length;i++){if(/[а-яё]/i.test(a[i])){a[i]=a[i].toLowerCase()==='а'?'о':'а';return {word:a.join(''),index:i}}}return {word:w,index:0}}
+function renderFindError(w){const e=makeErrorWord(w);window.errorState={error:e,selected:null,marked:false};document.getElementById('game').innerHTML=`<div class="panel"><div class="picture">${pictureFor(w)}</div><p>В слове спряталась <b>одна ошибка</b>. Нажми на неправильную букву.</p><div class="bigword spaced">${[...e.word].map((x,i)=>`<button type="button" class="letterBtn" id="err${i}" onclick="pickError(${i})">${esc(x)}</button>`).join('')}</div><div id="efind" class="miniFb"></div><button id="checkError" class="primary" disabled onclick="checkError()">Проверить</button></div>`}
+function pickError(i){const st=window.errorState;if(!st)return;st.selected=i;document.querySelectorAll('.letterBtn').forEach(b=>b.classList.remove('picked','correctPick','wrongPick'));const btn=document.getElementById('err'+i);btn.classList.add('picked',i===st.error.index?'correctPick':'wrongPick');document.getElementById('checkError').disabled=false}
+function checkError(){const st=window.errorState;if(st.selected===null||st.selected===undefined)return;if(st.selected===st.error.index){const btn=document.getElementById('err'+st.selected);btn.classList.remove('wrongPick');btn.classList.add('correctPick');document.getElementById('efind').innerHTML='<span class="ok">✓ Правильно! Нашёл ошибку!</span>';setTimeout(nextStage,500)}else{if(!st.marked){markError();st.marked=true}const btn=document.getElementById('err'+st.selected);btn.classList.remove('picked');btn.classList.add('wrongPick');document.getElementById('efind').innerHTML='<span class="bad">✗ Неверно. Попробуй ещё раз.</span>'}}
+
+function renderMissing(w){const pos=missingPositions(w);let shown=[...w];pos.forEach(i=>shown[i]='_');let state={pos,answers:{}};window.missingState=state;document.getElementById('game').innerHTML=`<div class="panel"><div class="bigword spaced">${shown.join('')}</div><p>В слове пропущено несколько букв. Выбери правильную букву для каждого пропуска.</p>${pos.map((p,j)=>`<div class="blankBox"><b>Пропуск ${j+1}</b><div class="options">${optionLetters(w[p].toLowerCase()).map(x=>`<button onclick="chooseMissing(${j},'${x}')">${x}</button>`).join('')}</div><div id="mfb${j}" class="miniFb"></div></div>`).join('')}<button id="checkMissing" class="primary" disabled onclick="checkMissing()">Проверить все буквы</button></div>`}
+function chooseMissing(j,x){window.missingState.answers[j]=x;const b=document.querySelectorAll('.blankBox')[j];b.querySelectorAll('button').forEach(q=>q.classList.remove('picked'));[...b.querySelectorAll('button')].find(q=>q.textContent===x)?.classList.add('picked');document.getElementById('mfb'+j).textContent='Выбрано: '+x;document.getElementById('checkMissing').disabled=Object.keys(window.missingState.answers).length!==window.missingState.pos.length}
+function checkMissing(){const w=currentWord(),s=window.missingState;let ok=true;s.pos.forEach((p,j)=>{const good=w[p].toLowerCase(), got=s.answers[j];if(got!==good){ok=false;document.getElementById('mfb'+j).innerHTML=`<span class="bad">✗ Правильно: ${good}</span>`}else document.getElementById('mfb'+j).innerHTML='<span class="ok">✓</span>'});if(ok){setTimeout(()=>{stage=5;renderAll()},500)}else markError()}
+function renderChoice(w){
+ let wrong=wrongSpellings(w), tries=0;
+ while((new Set(wrong)).size<3 && tries++<30){wrong=[...new Set([...wrong,...wrongSpellings(w)])];}
+ wrong=wrong.filter(x=>x!==w);
+ while(wrong.length<3){
+   const extra=wrongSpellings(w);
+   for(const x of extra){if(x!==w&&!wrong.includes(x)) wrong.push(x); if(wrong.length>=3) break;}
+   if(extra.length===0) break;
+ }
+ const opts=shuffle([w,...wrong.slice(0,3)]);
+ window.choiceState={selected:null,correct:w};
+ const game=document.getElementById('game');
+ game.innerHTML=`<div class="panel"><div class="picture">${pictureFor(w)}</div><p>Выбери единственное правильное написание.</p><div class="choiceGrid">${opts.map((x,i)=>`<button type="button" class="choiceBtn" data-choice="${esc(x)}" id="choice${i}">${esc(x)}</button>`).join('')}</div><div id="cfb"></div><button id="confirmChoice" class="primary" type="button" disabled>Подтвердить ответ</button></div>`;
+ game.querySelectorAll('.choiceBtn').forEach(btn=>btn.addEventListener('click',()=>selectChoice(btn.dataset.choice)));
+ document.getElementById('confirmChoice').addEventListener('click',confirmChoice);
+}
+function selectChoice(x){
+ if(!window.choiceState) return;
+ window.choiceState.selected=x;
+ const buttons=document.querySelectorAll('.choiceGrid .choiceBtn');
+ buttons.forEach(b=>b.classList.remove('picked','correctPick','wrongPick'));
+ buttons.forEach(b=>{if(b.dataset.choice===x)b.classList.add('picked', x===window.choiceState.correct?'correctPick':'wrongPick')});
+ const btn=document.getElementById('confirmChoice');
+ if(btn) btn.disabled=false;
+ const fb=document.getElementById('cfb');
+ if(fb) fb.innerHTML='';
+}
+function confirmChoice(){
+ const s=window.choiceState;
+ if(!s||s.selected===null) return;
+ const fb=document.getElementById('cfb');
+ const btn=document.getElementById('confirmChoice');
+ if(s.selected===s.correct){
+   if(fb) fb.innerHTML='<span class="ok">✓ Правильно! Переходим дальше.</span>';
+   if(btn) btn.disabled=true;
+   setTimeout(nextStage,500);
+ } else {
+   markError();
+   if(fb) fb.innerHTML='<span class="bad">✗ Неверно. Попробуй ещё раз.</span>';
+   if(btn) btn.disabled=true;
+   window.choiceState.selected=null;
+ }
+}
+function chooseWord(x,w){selectChoice(x)}
+function finishWord(){if(wordIndex<levelWords().length-1){wordIndex++;stage=1;renderAll()}else{startExam()}}
+function startExam(){examWords=[...levelWords()];stage='exam';examIndex=0;examErrors=0;renderAll()}
+function renderExam(){const ws=examWords.length?examWords:levelWords();const totalQuestions=ws.length*2;if(examIndex>=totalQuestions){const total=lessonErrors;const st=starsFor(total);ensure();if(!progress[cls].attempted)progress[cls].attempted={};progress[cls].attempted[level]=true;if(st>0){markDone();const msg=st===3?'🎉 Отлично! Урок пройден — 3 звезды!':st===2?'⭐ Урок пройден — 2 звезды!': '⭐ Урок пройден — 1 звезда. Ошибок: '+total;alert(msg);if(level<levels().length-1){level++;}wordIndex=0;stage=1;levelHadError=false;lessonErrors=0;examIndex=0;examErrors=0;examWords=[];renderAll();}else{save();alert('😌 Пока не получилось пройти урок. Ошибок: '+total+'. Попробуй ещё раз — нужно не больше 3 ошибок.');wordIndex=0;stage=1;levelHadError=false;lessonErrors=0;examIndex=0;examErrors=0;examWords=[];renderAll();}return}
+ const wordNo=Math.floor(examIndex/2);const w=ws[wordNo];const pairSets=[['choice','vowels'],['build','error']];examMode=pairSets[wordNo%pairSets.length][examIndex%2];window.examCurrentWord=w;document.getElementById('stageTitle').textContent='Итоговая проверка';document.getElementById('stageName').textContent=`Слово ${wordNo+1} из ${ws.length} • задание ${examIndex%2+1} из 2`;document.getElementById('wordPos').textContent=`Урок ${level+1} • итоговая проверка`;document.getElementById('bar').style.width=((examIndex)/totalQuestions*100)+'%';const g=document.getElementById('game');
+ if(examMode==='choice'){let wrong=wrongSpellings(w),opts=shuffle([w,...wrong]);g.innerHTML=`<div class="panel"><div class="picture">${pictureFor(w)}</div><p>Выбери правильное написание слова.</p><div class="choiceGrid">${opts.map((x,i)=>`<button type="button" class="examChoiceBtn" data-choice="${esc(x)}" id="examChoice${i}">${esc(x)}</button>`).join('')}</div><div id="efb"></div></div>`;g.querySelectorAll('.examChoiceBtn').forEach(btn=>btn.addEventListener('click',()=>examChoice(btn.dataset.choice,w)))}
+ if(examMode==='vowels'){renderVowels(w)}
+ if(examMode==='build'){renderBuild(w)}
+ if(examMode==='error'){const e=makeErrorWord(w);window.examErrorState={selected:null};g.innerHTML=`<div class="panel"><div class="picture">${pictureFor(w)}</div><p>Найди одну неправильную букву.</p><div class="bigword spaced">${[...e.word].map((x,i)=>`<button type="button" class="letterBtn" onclick="pickExamError(${i})">${esc(x)}</button>`).join('')}</div><div id="efb"></div><button id="checkExamError" class="primary" disabled onclick="checkExamError(${e.index})">Проверить</button></div>`;window.examErrorState.correct=e.index}
+}
+function examNext(){examIndex++;renderAll()}
+function examType(){const w=(examWords.length?examWords:levelWords())[examIndex],v=document.getElementById('exTyped')?.value||'';if(norm(v)===norm(w)){document.getElementById('efb').innerHTML='<span class="ok">✓</span>';setTimeout(examNext,350)}else{examErrors++;markError();document.getElementById('efb').innerHTML='<span class="bad">✗ Правильно: '+esc(w)+'</span>';}}
+function examChoice(x,w){if(x===w){document.getElementById('efb').innerHTML='<span class="ok">✓</span>';setTimeout(examNext,350)}else{examErrors++;markError();document.getElementById('efb').innerHTML='<span class="bad">✗ Выбери правильное написание.</span>';}}
+function pickExamError(i){window.examErrorState.selected=i;document.querySelectorAll('.letterBtn').forEach(b=>b.classList.remove('picked'));event.currentTarget.classList.add('picked');document.getElementById('checkExamError').disabled=false}
+function checkExamError(correct){if(window.examErrorState.selected===correct){document.getElementById('efb').innerHTML='<span class="ok">✓</span>';setTimeout(examNext,350)}else{examErrors++;markError();document.getElementById('efb').innerHTML='<span class="bad">✗ Это не та буква.</span>'}}
+
+function updateStats(){const all=Object.values(progress).flatMap(x=>Object.values(x.errors||{}));document.getElementById('errors').textContent=all.reduce((a,b)=>a+b,0);document.getElementById('doneLevels').textContent=Object.values(progress).reduce((a,x)=>a+(x.done||[]).length,0);document.getElementById('levelCount').textContent=levels().length;}
+function init(){renderAll()}
+window.addEventListener('DOMContentLoaded',init);
+</script></body></html>
